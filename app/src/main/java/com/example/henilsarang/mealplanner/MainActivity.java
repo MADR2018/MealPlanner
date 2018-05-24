@@ -38,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         pwdText = findViewById(R.id.pwdText2);
         btnlogin = findViewById(R.id.btnLogin);
         mProgressBar = findViewById(R.id.loginProgress);
+        mAuth = FirebaseAuth.getInstance();
+
+
+
+
 
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
                             if (task.isSuccessful())
                             {
-                                //sentToMain();
+                                sentToMain();
                             }
                             else{
                                String errorMsg = task.getException().getMessage();
@@ -90,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-/*
+
       FirebaseUser currentUser = mAuth.getCurrentUser();
       if(currentUser == null){
           sentToMain();
       }
-*/
+
     }
 
 
