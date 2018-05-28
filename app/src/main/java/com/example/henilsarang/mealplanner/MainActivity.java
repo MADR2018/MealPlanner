@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         pwdText = findViewById(R.id.pwdText2);
         btnlogin = findViewById(R.id.btnLogin);
         mProgressBar = findViewById(R.id.loginProgress);
+        mAuth = FirebaseAuth.getInstance();
 
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
