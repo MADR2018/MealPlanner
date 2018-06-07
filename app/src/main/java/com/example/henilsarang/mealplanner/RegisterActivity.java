@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText email_field,pass_field,confirmpass_field;
-    private Button reg_btn;
+    private Button reg_btn,back;
     private ProgressBar mProgress;
     private FirebaseAuth mAuth;
 
@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         reg_btn = findViewById(R.id.btnSignUp);
         mProgress = findViewById(R.id.signupProgress);
         mAuth = FirebaseAuth.getInstance();
+        back = findViewById(R.id.btnBack);
 
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +83,15 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent mainIntent = new Intent(RegisterActivity.this,WelcomeActivity.class);
+                startActivity(mainIntent);
+
+            }
+        });
 
     }
 
