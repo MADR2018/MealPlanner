@@ -58,7 +58,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 if(task.isSuccessful()){
 
-                                    sentToMain();
+                                    Intent dietIntent = new Intent(RegisterActivity.this,dietActivity.class);
+                                    startActivity(dietIntent);
+                                    finish();
 
                                 }else{
 
