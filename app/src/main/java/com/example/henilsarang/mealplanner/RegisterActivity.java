@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -23,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button reg_btn,back;
     private ProgressBar mProgress;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabaseReference;
 
 
     @Override
@@ -37,6 +40,10 @@ public class RegisterActivity extends AppCompatActivity {
         mProgress = findViewById(R.id.signupProgress);
         mAuth = FirebaseAuth.getInstance();
         back = findViewById(R.id.btnBack);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+
+
+
 
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +68,17 @@ public class RegisterActivity extends AppCompatActivity {
                                     Intent dietIntent = new Intent(RegisterActivity.this,dietActivity.class);
                                     startActivity(dietIntent);
                                     finish();
+
+                                        //1 - Create child in root object
+                                        //2 - Assign some value to the child object
+
+                                    mDatabaseReference.child("User").setValue("");
+
+
+
+
+                                    //sentToMain();
+
 
                                 }else{
 
