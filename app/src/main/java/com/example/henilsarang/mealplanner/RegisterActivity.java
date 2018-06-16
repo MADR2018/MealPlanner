@@ -26,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressBar mProgress;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabaseReference;
+    private String currentuser;
 
 
     @Override
@@ -44,13 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String email = email_field.getText().toString();
-                String pass = pass_field.getText().toString();
+                final String email = email_field.getText().toString();
+                final String pass = pass_field.getText().toString();
                 String confrim_pass = confirmpass_field.getText().toString();
 
                 if(!TextUtils.isEmpty(email) &&  !TextUtils.isEmpty(pass) && !TextUtils.isEmpty(confrim_pass)){
@@ -65,14 +65,17 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 if(task.isSuccessful()){
 
-                                    Intent dietIntent = new Intent(RegisterActivity.this,dietActivity.class);
+                                    Intent dietIntent = new Intent(RegisterActivity.this,MainActivity.class);
                                     startActivity(dietIntent);
-                                    finish();
 
+
+
+                                        currentuser = mAuth.getCurrentUser().getUid().toString();
                                         //1 - Create child in root object
                                         //2 - Assign some value to the child object
 
-                                    mDatabaseReference.child("User").setValue("");
+                                   mDatabaseReference.child(currentuser).child("Email").setValue(email);
+                                    mDatabaseReference.child(currentuser).child("Password").setValue(pass);
 
 
 

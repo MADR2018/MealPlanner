@@ -16,8 +16,8 @@ public class mainscreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
-       // mainToolbar = findViewById(R.id.main_toolbar);
-      //  setSupportActionBar(mainToolbar);
+      // mainToolbar = findViewById(R.id.main_toolbar);
+       //setSupportActionBar(mainToolbar);
         getSupportActionBar().setTitle("Sign Up");
 
 

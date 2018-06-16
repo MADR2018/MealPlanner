@@ -65,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
                             if (task.isSuccessful())
                             {
-                                //sentToMain();
+                                Intent intent = new Intent(MainActivity.this,dietActivity.class);
+                                startActivity(intent);
+
+
                             }
                             else{
                                String errorMsg = task.getException().getMessage();
