@@ -48,8 +48,6 @@ public class mealActivity extends AppCompatActivity {
             viewHolder.setTitle(model.getTitle());
             viewHolder.setImage(getApplication(),model.getImg());
 
-
-
             }
         };
 
